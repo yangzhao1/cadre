@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/me/Me.dart';
+import 'package:flutter_cadre/pages/tools/tool_notification.dart';
 import 'pages/portable/Portable.dart';
 import 'pages/home/index.dart';
 import 'pages/analyse/index.dart';
-
 
 void main() => runApp(MyApp());
 
@@ -24,27 +24,50 @@ class MyApp extends StatelessWidget {
 class _MainTabPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MainTabPageState();
+
 }
 
 class _MainTabPageState extends State<_MainTabPage> {
-  final _itemsData = [
-    TabbarItem('首页','images/home_nor.png','images/home_sel.png', HomePage()),
-    TabbarItem('数据分析','images/analyse_nor.png','images/analyse_sel.png', AnalysePage()),
-    TabbarItem('便携名册','images/address_nor.png','images/address_sel.png', Portable()),
-    TabbarItem('我的', 'images/mine_nor.png','images/mine_sel.png', Me()),
-  ];
-  
   int _selectIndex = 0;
-  
+  //
+  final _itemsData = [
+    TabbarItem(
+      '首页',
+      'images/home_nor.png',
+      'images/home_sel.png',
+      HomePage(),
+    ),
+    TabbarItem('数据分析', 'images/analyse_nor.png', 'images/analyse_sel.png',
+        AnalysePage()),
+    TabbarItem(
+        '便携名册', 'images/address_nor.png', 'images/address_sel.png', Portable()),
+    TabbarItem('我的', 'images/mine_nor.png', 'images/mine_sel.png', Me()),
+  ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _itemsData[_selectIndex].pageRout,
+    return  Scaffold(
+      body: NotificationListener(
+      onNotification: (ToolNotification n){
+        setState(() {
+          _selectIndex = n.value;
+        });
+        return true;
+      }, child: _itemsData[_selectIndex].pageRout,
+    ),
       bottomNavigationBar: BottomNavigationBar(
-        items: _itemsData.map((item)=>this._initItem(item)).toList(),
+        items: _itemsData.map((item) => this._initItem(item)).toList(),
         currentIndex: _selectIndex,
         selectedItemColor: Colors.blue,
-        onTap: (index){
+        onTap: (index) {
           setState(() {
             _selectIndex = index;
           });
@@ -72,7 +95,7 @@ class _MainTabPageState extends State<_MainTabPage> {
 
 /// tabbar item
 class TabbarItem {
-  TabbarItem(this.title, this.norImage,this.selImage, this.pageRout);
+  TabbarItem(this.title, this.norImage, this.selImage, this.pageRout);
   String title;
   String norImage;
   String selImage;

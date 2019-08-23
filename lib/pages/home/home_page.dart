@@ -2,6 +2,7 @@ import 'package:easy_listview/easy_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/home/home_detail_page.dart';
 import 'package:flutter_cadre/pages/home/home_search_page.dart';
+import 'package:flutter_cadre/pages/tools/tool_notification.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   List _hotMessages = ['测试1', '测试2'];
 
   List _tableItems = ['1', '2'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,12 +56,6 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (BuildContext context, int index) {
           return _initCell();
         },
-        // dividerBuilder: (BuildContext context, int index) {
-        //   return Container(
-        //     color: Colors.grey,
-        //     height: 1,
-        //   );
-        // },
       ),
     );
   }
@@ -109,8 +105,8 @@ class _HomePageState extends State<HomePage> {
         GestureDetector(
           child: _initQuickButton('高级查询'),
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SearchPage()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SearchPage()));
           },
         ),
         GestureDetector(
@@ -120,7 +116,12 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (context) => HomeDetailPage()));
           },
         ),
-        _initQuickButton('便捷名册'),
+        GestureDetector(
+          child: _initQuickButton('名册概要'),
+          onTap: () {
+            ToolNotification(value: 2).dispatch(context);
+          },
+        ),
       ],
     );
   }
@@ -166,7 +167,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Card _initCell() {
-    return Card(
+    return  Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
