@@ -37,6 +37,21 @@ class AnalyseChartViewPage extends State<AnalyseChartView> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        AspectRatio(
+          aspectRatio: 1,
+          child: FlChart(
+            chart: PieChart(
+              PieChartData(
+                borderData: FlBorderData(
+                  show: false,
+                ),
+                sectionsSpace: 0,
+                centerSpaceRadius: 0,
+                sections: _initChartSectionData(),
+              ),
+            ),
+          ),
+        ),
         Container(
           height: 50,
           child: Wrap(
@@ -62,21 +77,6 @@ class AnalyseChartViewPage extends State<AnalyseChartView> {
                 .toList(),
           ),
         ),
-        AspectRatio(
-          aspectRatio: 1,
-          child: FlChart(
-            chart: PieChart(
-              PieChartData(
-                borderData: FlBorderData(
-                  show: false,
-                ),
-                sectionsSpace: 0,
-                centerSpaceRadius: 0,
-                sections: _initChartSectionData(),
-              ),
-            ),
-          ),
-        )
       ],
     );
   }

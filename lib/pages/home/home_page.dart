@@ -1,5 +1,7 @@
 import 'package:easy_listview/easy_listview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/home/home_detail_page.dart';
+import 'package:flutter_cadre/pages/home/home_search_page.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,8 +27,8 @@ class _HomePageState extends State<HomePage> {
         headerBuilder: (BuildContext context) {
           return Column(
             children: <Widget>[
-              Container(
-                height: 150,
+              AspectRatio(
+                aspectRatio: 3,
                 child: _initTopSwiper(),
               ),
               Container(
@@ -95,26 +97,46 @@ class _HomePageState extends State<HomePage> {
   //快捷查询
   Row _initQuickFind() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
-        _initQuickButton('综合查询'),
-        _initQuickButton('高级查询'),
-        _initQuickButton('智能查询'),
+        GestureDetector(
+          child: _initQuickButton('综合查询'),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeDetailPage()));
+          },
+        ),
+        GestureDetector(
+          child: _initQuickButton('高级查询'),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SearchPage()));
+          },
+        ),
+        GestureDetector(
+          child: _initQuickButton('智能查询'),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeDetailPage()));
+          },
+        ),
         _initQuickButton('便捷名册'),
       ],
     );
   }
 
-  ClipOval _initQuickButton(String title) {
-    return ClipOval(
-      child: Container(
-        width: 70,
-        height: 70,
-        color: Colors.blue,
-        child: Center(
-          child: Text(
-            title,
-            style: TextStyle(color: Colors.white),
+  Center _initQuickButton(String title) {
+    return Center(
+      child: ClipOval(
+        child: Container(
+          width: 70,
+          height: 70,
+          color: Colors.blue,
+          child: Center(
+            child: Text(
+              title,
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ),
       ),
@@ -148,9 +170,18 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 5),child: Text('干部姓名：张三'),),
-          Container(padding: EdgeInsets.only(left: 20,right: 20,top: 5,bottom: 5),child: Text('单位：西安中级人民法院'),),
-          Container(padding: EdgeInsets.only(left: 20,right: 20,top: 5,bottom: 10),child: Text('性别：男          职级：书记'),),
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
+            child: Text('干部姓名：张三'),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+            child: Text('单位：西安中级人民法院'),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 10),
+            child: Text('性别：男          职级：书记'),
+          ),
         ],
       ),
     );
