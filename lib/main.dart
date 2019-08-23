@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cadre/pages/analyse/analyse_page.dart';
 import 'pages/portable/Portable.dart';
 import 'pages/home/index.dart';
 import 'pages/analyse/index.dart';
