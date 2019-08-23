@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/collect/Collect.dart';
+import 'package:flutter_cadre/pages/dataBank/DataBank.dart';
+import 'package:flutter_cadre/pages/history/History.dart';
 import 'package:flutter_cadre/pages/login/Login.dart';
 
 class Me extends StatefulWidget {
@@ -43,110 +46,161 @@ class _MeState extends State<Me> {
             ),
           ),
           SizedBox(height: 10),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("收藏夹管理"),
-                ],
-              ),
-            )
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("收藏夹管理"),
+                  ],
+                ),
+            ),
+            onTap: (){
+              // print("收藏夹");
+              Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context)=>Collect()
+                        )
+                      );
+                    },
           ),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("浏览记录"),
-                ],
+          SizedBox(height: 10),
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("浏览记录"),
+                  ],
+                ),
               ),
-            )
+            onTap: (){
+              Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context)=>BrowsHistory()
+                        )
+                      );
+                    },
           ),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("资料库"),
-                ],
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("资料库"),
+                  ],
+                ),
               ),
-            )
+            onTap: (){
+              Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context)=>DataBank()
+                        )
+                      );
+                    },
           ),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("智能语音助手"),
-                ],
-              ),
-            )
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("智能语音助手"),
+                  ],
+                ),
+            ),
+            onTap: (){
+              // Navigator.of(context).push(
+              //           MaterialPageRoute(
+              //             builder: (context)=>Login()
+              //           )
+              //         );
+                    },
           ),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("个性化设置"),
-                ],
-              ),
-            )
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("个性化设置"),
+                  ],
+                ),
+            ),
+            onTap: (){
+              // Navigator.of(context).push(
+              //           MaterialPageRoute(
+              //             builder: (context)=>Login()
+              //           )
+              //         );
+                    },
           ),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("修改密码"),
-                ],
-              ),
-            )
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("修改密码"),
+                  ],
+                ),
+            ),
+            onTap: (){
+              Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context)=>Login()
+                        )
+                      );
+                    },
           ),
-          Card(
-            child:Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
-                  SizedBox(width: 20),
-                  Text("版本更新"),
-                ],
-              ),
-            )
+          GestureDetector(
+              child:Container(
+                height: 40,
+                color: Colors.white60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(width: 20),
+                    Image(image: AssetImage('images/home_nor.png'),width: 20,height: 20,),
+                    SizedBox(width: 20),
+                    Text("版本更新"),
+                  ],
+                ),
+            ),
+            onTap: (){
+              Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context)=>Login()
+                        )
+                      );
+                    },
           ),
           SizedBox(height: 20),
           GestureDetector(
