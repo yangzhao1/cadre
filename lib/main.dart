@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/analyse/analyse_page.dart';
+import 'package:flutter_cadre/pages/me/Me.dart';
 import 'pages/portable/Portable.dart';
 import 'pages/home/index.dart';
 import 'pages/analyse/index.dart';
@@ -30,7 +31,7 @@ class _MainTabPageState extends State<_MainTabPage> {
     TabbarItem('首页','images/home_nor.png','images/home_sel.png', HomePage()),
     TabbarItem('数据分析','images/analyse_nor.png','images/analyse_sel.png', AnalysePage()),
     TabbarItem('便携名册','images/address_nor.png','images/address_sel.png', Portable()),
-    TabbarItem('我的', 'images/mine_nor.png','images/mine_sel.png', null),
+    TabbarItem('我的', 'images/mine_nor.png','images/mine_sel.png', Me()),
   ];
   
   int _selectIndex = 0;
