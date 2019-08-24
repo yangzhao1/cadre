@@ -82,6 +82,6 @@ class _ForgetPWState extends State<ForgetPW> {
 
   void _onLogin() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => NewPW()));
+        .pushReplacement(MaterialPageRoute(builder: (context) => NewPW()));
   }
 }

@@ -172,7 +172,7 @@ class SearchPageState extends State<SearchPage> {
       '学历',
       GestureDetector(
         child: _initBaseRowContainer(
-          Text(_type.length == 0 ? '请选择' : _type),
+          Text(_education.length == 0 ? '请选择' : _education),
         ),
         onTap: () {
           showDialog(

@@ -27,7 +27,6 @@ class AnalyseChartViewPage extends State<AnalyseChartView> {
               radius: (MediaQuery.of(context).size.width - 80) / 4 - 40,
               titleStyle: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
                   color: Color(0xffffffff)),
             )))
         .toList();

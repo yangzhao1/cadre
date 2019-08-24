@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     // var gm = GmLocalizations.of(context);
-    return Scaffold(
+    return  Scaffold(
       // appBar: AppBar(title: Text(gm.login)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -114,7 +114,7 @@ class _LoginState extends State<Login> {
   }
 
   void _onLogin() {
-    Navigator.pushNamed(context, "/");
+    Navigator.pushReplacementNamed(context, '/main');
   }
 }
 

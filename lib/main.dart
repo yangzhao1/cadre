@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/login/Login.dart';
 import 'package:flutter_cadre/pages/me/Me.dart';
 import 'package:flutter_cadre/pages/tools/tool_notification.dart';
 import 'pages/portable/Portable.dart';
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: _MainTabPage(),
+      routes: <String,WidgetBuilder>{
+        '/main': (BuildContext cxt) =>_MainTabPage(),
+        '/login':(BuildContext cxt) => Login(),
+      },
+      home: Login(),
     );
   }
 }
@@ -24,7 +29,6 @@ class MyApp extends StatelessWidget {
 class _MainTabPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MainTabPageState();
-
 }
 
 class _MainTabPageState extends State<_MainTabPage> {
@@ -45,15 +49,16 @@ class _MainTabPageState extends State<_MainTabPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: NotificationListener(
-      onNotification: (ToolNotification n){
-        setState(() {
-          _selectIndex = n.value;
-        });
-        return true;
-      }, child: _itemsData[_selectIndex].pageRout,
-    ),
+        onNotification: (ToolNotification n) {
+          setState(() {
+            _selectIndex = n.value;
+          });
+          return true;
+        },
+        child: _itemsData[_selectIndex].pageRout,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: _itemsData.map((item) => this._initItem(item)).toList(),
         currentIndex: _selectIndex,
