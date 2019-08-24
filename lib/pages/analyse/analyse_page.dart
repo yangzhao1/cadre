@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './analyse_chart_view.dart';
+import 'analyse_bar_chart.dart';
 
 class AnalysePage extends StatefulWidget {
   @override
@@ -71,6 +72,29 @@ class AnalysePageState extends State<AnalysePage>
             ]),
           ],
         ),
+        SizedBox(height: 10,),
+        _initLineChart('人员分布', [
+          ABarChartItemModel(
+            xValue: '西安',
+            yValue: 90,
+          ),
+          ABarChartItemModel(
+            xValue: '延安',
+            yValue: 60,
+          ),
+          ABarChartItemModel(
+            xValue: '宝鸡',
+            yValue: 70,
+          ),
+          ABarChartItemModel(
+            xValue: '榆林',
+            yValue: 90,
+          ),
+          ABarChartItemModel(
+            xValue: '汉中',
+            yValue: 22,
+          ),
+        ]),
       ],
     ));
   }
@@ -80,20 +104,43 @@ class AnalysePageState extends State<AnalysePage>
     return SingleChildScrollView(
         child: Column(
       children: <Widget>[
+        SizedBox(height: 10,),
+        _initLineChart('人员分布', [
+          ABarChartItemModel(
+            xValue: '西安',
+            yValue: 90,
+          ),
+          ABarChartItemModel(
+            xValue: '延安',
+            yValue: 60,
+          ),
+          ABarChartItemModel(
+            xValue: '宝鸡',
+            yValue: 70,
+          ),
+          ABarChartItemModel(
+            xValue: '榆林',
+            yValue: 90,
+          ),
+          ABarChartItemModel(
+            xValue: '汉中',
+            yValue: 22,
+          ),
+        ]),
         SizedBox(
           height: 20,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            _initChart('人员分布', [
-              AChartItemModel(2, Color(0xff0293ee), '办公室'),
-              AChartItemModel(4, Color(0xfff8b250), '执法大队'),
-              AChartItemModel(5, Color(0xff845bef), '业务'),
-            ]),
             _initChart('男女比例', [
               AChartItemModel(2, Color(0xff0293ee), '男'),
               AChartItemModel(4, Color(0xfff8b250), '女'),
+            ]),
+              _initChart('学历分布', [
+              AChartItemModel(1, Color(0xff0293ee), '大专'),
+              AChartItemModel(4, Color(0xfff8b250), '大学本科'),
+              AChartItemModel(2, Color(0xff845bef), '研究生(在职、全日制、党校)'),
             ]),
           ],
         ),
@@ -102,12 +149,7 @@ class AnalysePageState extends State<AnalysePage>
         ),
         Row(
           children: <Widget>[
-            _initChart('学历分布', [
-              AChartItemModel(1, Color(0xff0293ee), '大专'),
-              AChartItemModel(4, Color(0xfff8b250), '大学本科'),
-              AChartItemModel(2, Color(0xff845bef), '研究生(在职、全日制、党校)'),
-            ]),
-              _initChart('单位统计', [
+            _initChart('单位统计', [
               AChartItemModel(2, Color(0xff0293ee), '水利局'),
               AChartItemModel(4, Color(0xfff8b250), '财政局'),
               AChartItemModel(9, Color(0xff845bef), '国土资源局'),
@@ -134,6 +176,31 @@ class AnalysePageState extends State<AnalysePage>
           Container(
             width: (MediaQuery.of(context).size.width - 80) / 2,
             child: AnalyseChartView(values),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Card _initLineChart(String title, List<ABarChartItemModel> values) {
+    return Card(
+      margin: EdgeInsets.only(left: 20, right: 20),
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            width: MediaQuery.of(context).size.width - 40,
+            height: 300,
+            child: AnalyseBarChart(
+              barData: values,
+            ),
           ),
         ],
       ),
