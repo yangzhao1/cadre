@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/home/home_detail_page.dart';
 import 'package:flutter_cadre/pages/home/home_search_page.dart';
 import 'package:flutter_cadre/pages/outline/PeopleOutline.dart';
+import 'package:flutter_cadre/pages/peopleInfo/PeopleInfo.dart';
 import 'package:flutter_cadre/pages/tools/tool_notification.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -170,24 +171,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   Card _initCell() {
-    return  Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
-            child: Text('干部姓名：张三'),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-            child: Text('单位：西安中级人民法院'),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 10),
-            child: Text('性别：男          职级：书记'),
-          ),
-        ],
-      ),
-    );
+    return Card(
+        child: GestureDetector(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
+                  child: Text('干部姓名：李洪涛'),
+                ),
+                Container(
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
+                  child: Text('单位：西安中级人民法院'),
+                ),
+                Container(
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 10),
+                  child: Text('性别：男          职级：书记'),
+                ),
+              ],
+            ),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => PeopleInfo()));
+            }));
   }
 }

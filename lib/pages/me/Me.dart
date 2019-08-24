@@ -35,11 +35,11 @@ class _MeState extends State<Me> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(10),
-                      child: Text("姓名: 张三", style: TextStyle(color: Colors.white)),
+                      child: Text("姓名: 李洪涛", style: TextStyle(color: Colors.white)),
                     ),
                     Padding(
                       padding: EdgeInsets.all(10),
-                      child: Text("账号: zhansgan",
+                      child: Text("账号: lihongtao",
                           style: TextStyle(color: Colors.white)),
                     ),
                   ],

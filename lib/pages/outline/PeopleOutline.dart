@@ -30,7 +30,7 @@ class _PeopleOutlineState extends State<PeopleOutline> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 5),child: Text('名称: 西安市人民法院'),),
+          Container(padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 5),child: Text('单位: 西安市人民法院'),),
           Container(padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 5),child: Text('院领导：李川，王平，钱天彤,刘捷。'),),
           Container(padding: EdgeInsets.only(left: 20,right: 20,top: 5,bottom: 5),child: Text('民一庭：赵培莲，马起泉，肖宝清，郝鹏，张国栋（小），张国栋（大），蔡荣华，王爽，张宁宁，潘烨，王文通，王承铭。'),),
           Container(padding: EdgeInsets.only(left: 20,right: 20,top: 5,bottom: 10),child: Text('民二庭：柏松，曹杨，张羽，王文雅，李冬平，王成鑫，曹玥，蔡常余，张东良，孙英，赵宝利，徐晨，徐玉刚。'),),

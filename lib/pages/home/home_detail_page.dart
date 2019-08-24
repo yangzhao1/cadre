@@ -54,11 +54,11 @@ class HomeDetailPageState extends State<HomeDetailPage> {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
-            child: Text('干部姓名：张三',
+            child: Text('干部姓名：李洪涛',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
           ),
           _initSubCell('专业：法律', '单位：西安中级人民法院'),
-          _initSubCell('性别：男', '职级：书记员'),
+          _initSubCell('性别：男', '职级：审判长'),
           _initSubCell('家庭成员：妻子', '籍贯：陕西省'),
           _initSubCell('奖惩情况：无', ''),
         ],

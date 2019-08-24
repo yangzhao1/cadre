@@ -24,6 +24,7 @@ class AnalysePageState extends State<AnalysePage>
     return Scaffold(
       appBar: AppBar(
         title: Text('数据分析'),
+        centerTitle: true,
         bottom: TabBar(
           labelPadding: EdgeInsets.only(top: 10, bottom: 10),
           tabs: _tabbars

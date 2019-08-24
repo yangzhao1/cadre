@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/tools/Toast.dart';
 
 class PeopleInfo extends StatefulWidget {
   PeopleInfo({Key key}) : super(key: key);
@@ -13,6 +14,27 @@ class _PeopleInfoState extends State<PeopleInfo> {
         appBar: AppBar(
           title: Text("详情"),
           centerTitle: true,
+          actions: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: (){
+                    Toast.toast(
+                      context,msg: '收藏成功'
+                    );
+                  },
+                  child:Container(
+                  margin: EdgeInsets.all(10),
+                  child: Text(
+                    '收藏',style: TextStyle(color: Colors.white),
+                   ),
+                  )
+                )
+              ],
+            )
+            
+          ],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -37,7 +59,7 @@ class _PeopleInfoState extends State<PeopleInfo> {
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.all(5),
-                            child: Text("姓名: 张三",
+                            child: Text("姓名: 李洪涛",
                                 style: TextStyle(color: Colors.black)),
                           ),
                           Padding(
@@ -118,7 +140,7 @@ class _PeopleInfoState extends State<PeopleInfo> {
                           Container(
                             padding: EdgeInsets.only(
                                 left: 20, right: 20, top: 10, bottom: 5),
-                            child: Text('单位职务：审判委员会委员,副院长'),
+                            child: Text('单位职务：审判委员会委员,院长'),
                           ),
                         ],
                       ),
