@@ -2,6 +2,7 @@ import 'package:easy_listview/easy_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/home/home_detail_page.dart';
 import 'package:flutter_cadre/pages/home/home_search_page.dart';
+import 'package:flutter_cadre/pages/outline/PeopleOutline.dart';
 import 'package:flutter_cadre/pages/tools/tool_notification.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
@@ -119,7 +120,9 @@ class _HomePageState extends State<HomePage> {
         GestureDetector(
           child: _initQuickButton('名册概要'),
           onTap: () {
-            ToolNotification(value: 2).dispatch(context);
+            // ToolNotification(value: 2).dispatch(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => PeopleOutline()));
           },
         ),
       ],

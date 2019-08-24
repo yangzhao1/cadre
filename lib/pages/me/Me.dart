@@ -3,6 +3,8 @@ import 'package:flutter_cadre/pages/collect/Collect.dart';
 import 'package:flutter_cadre/pages/dataBank/DataBank.dart';
 import 'package:flutter_cadre/pages/history/History.dart';
 import 'package:flutter_cadre/pages/login/Login.dart';
+import 'package:flutter_cadre/pages/password/UpdatePW.dart';
+
 
 class Me extends StatefulWidget {
   _MeState createState() => _MeState();
@@ -175,7 +177,7 @@ class _MeState extends State<Me> {
             onTap: (){
               Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context)=>Login()
+                          builder: (context)=>UpdatePW()
                         )
                       );
                     },

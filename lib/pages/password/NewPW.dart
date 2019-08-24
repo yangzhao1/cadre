@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class UpdatePW extends StatefulWidget {
-  UpdatePW({Key key}) : super(key: key);
+class NewPW extends StatefulWidget {
+  NewPW({Key key}) : super(key: key);
 
-  _UpdatePWState createState() => _UpdatePWState();
+  _NewPWState createState() => _NewPWState();
 }
 
-class _UpdatePWState extends State<UpdatePW> {
+class _NewPWState extends State<NewPW> {
 
-  TextEditingController _oldPwdController = new TextEditingController();
   TextEditingController _newPwdController1 = new TextEditingController();
   TextEditingController _newPwdController2 = new TextEditingController();
 
@@ -20,7 +19,7 @@ class _UpdatePWState extends State<UpdatePW> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("修改密码"),
+        title: Text("重置密码"),
         centerTitle: true
       ),
       body: Padding(
@@ -31,27 +30,6 @@ class _UpdatePWState extends State<UpdatePW> {
           child: Column(
             children: <Widget>[
               SizedBox(height: 50),
-              TextFormField(
-                  autofocus: _nameAutoFocus,
-                  controller: _oldPwdController,
-                  decoration: InputDecoration(
-                    labelText: "旧密码",
-                    hintText: "请输入旧密码",
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                          pwdShow ? Icons.visibility_off : Icons.visibility),
-                      onPressed: () {
-                        setState(() {
-                          pwdShow = !pwdShow;
-                        });
-                      },
-                    )),
-                  obscureText: !pwdShow,
-                  // 校验密码（不能为空）
-                  validator: (v) {
-                    return v.trim().isNotEmpty ? null : "旧密码不能为空";
-                  }),
               TextFormField(
                 controller: _newPwdController1,
                 autofocus: !_nameAutoFocus,

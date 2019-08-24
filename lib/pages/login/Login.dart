@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/password/ForgetPW.dart';
+import 'package:flutter_cadre/pages/password/UpdatePW.dart';
 
 class Login extends StatefulWidget {
 
@@ -73,6 +75,24 @@ class _LoginState extends State<Login> {
                 validator: (v) {
                   return v.trim().isNotEmpty ? null : "密码不能为空";
                 },
+              ),
+              Stack(
+                alignment: Alignment.centerRight,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      child: Text("忘记密码",style: TextStyle(color: Colors.blue),),
+                      onTap: (){
+                         Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context)=>ForgetPW()
+                            )
+                        );
+                      },
+                    )
+                  )
+                ],
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25),
