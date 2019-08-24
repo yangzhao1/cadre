@@ -43,15 +43,6 @@ class _MainTabPageState extends State<_MainTabPage> {
         '便携名册', 'images/address_nor.png', 'images/address_sel.png', Portable()),
     TabbarItem('我的', 'images/mine_nor.png', 'images/mine_sel.png', Me()),
   ];
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

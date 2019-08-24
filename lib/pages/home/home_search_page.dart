@@ -42,14 +42,8 @@ class SearchPageState extends State<SearchPage> {
     return _initBaseRow(
       '干部类别',
       GestureDetector(
-        child: Container(
-          alignment: Alignment.centerLeft,
-          height: 50,
-          margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
-          ),
-          child: Text(_type.length == 0 ? '请选择' : _type),
+        child: _initBaseRowContainer(
+          Text(_type.length == 0 ? '请选择' : _type),
         ),
         onTap: () {
           showDialog(
@@ -65,20 +59,14 @@ class SearchPageState extends State<SearchPage> {
   Row _initNameRow() {
     return _initBaseRow(
       '姓名',
-      Container(
-        alignment: Alignment.centerLeft,
-        height: 50,
-        margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-        ),
-        child: TextField(
+      _initBaseRowContainer(
+        TextField(
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Colors.white10),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Colors.white10),
             ),
           ),
         ),
@@ -89,14 +77,8 @@ class SearchPageState extends State<SearchPage> {
   Row _initHomeTownRow() {
     return _initBaseRow(
       '籍贯',
-      Container(
-        alignment: Alignment.centerLeft,
-        height: 50,
-        margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-        ),
-        child: TextField(
+      _initBaseRowContainer(
+        TextField(
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.white),
@@ -121,23 +103,25 @@ class SearchPageState extends State<SearchPage> {
             height: 50,
             width: 80,
             margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
+            padding: EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
               ),
             ),
           ),
           Container(
             height: 1,
-            width: 100,
+            width: 60,
             color: Colors.grey,
           ),
           Container(
@@ -147,14 +131,15 @@ class SearchPageState extends State<SearchPage> {
             margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
               ),
             ),
@@ -167,20 +152,14 @@ class SearchPageState extends State<SearchPage> {
   Row _initTakeOfficeRow() {
     return _initBaseRow(
       '任职职级年限',
-      Container(
-        alignment: Alignment.centerLeft,
-        height: 50,
-        margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-        ),
-        child: TextField(
+      _initBaseRowContainer(
+        TextField(
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Colors.white10),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Colors.white10),
             ),
           ),
         ),
@@ -192,14 +171,8 @@ class SearchPageState extends State<SearchPage> {
     return _initBaseRow(
       '学历',
       GestureDetector(
-        child: Container(
-          alignment: Alignment.centerLeft,
-          height: 50,
-          margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
-          ),
-          child: Text(_education.length == 0 ? '请选择' : _education),
+        child: _initBaseRowContainer(
+          Text(_type.length == 0 ? '请选择' : _type),
         ),
         onTap: () {
           showDialog(
@@ -225,21 +198,22 @@ class SearchPageState extends State<SearchPage> {
             margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
               ),
             ),
           ),
           Container(
             height: 1,
-            width: 100,
+            width: 60,
             color: Colors.grey,
           ),
           Container(
@@ -249,14 +223,15 @@ class SearchPageState extends State<SearchPage> {
             margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white10),
                 ),
               ),
             ),
@@ -273,8 +248,12 @@ class SearchPageState extends State<SearchPage> {
         GestureDetector(
           child: Container(
             width: MediaQuery.of(context).size.width / 4,
-            height: 60,
-            color: Colors.blue,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              border: Border.all(color: Colors.blue),
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+            ),
             child: Center(
               child: Text(
                 '查询',
@@ -289,8 +268,12 @@ class SearchPageState extends State<SearchPage> {
         GestureDetector(
           child: Container(
             width: MediaQuery.of(context).size.width / 4,
-            height: 60,
-            color: Colors.blue,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              border: Border.all(color: Colors.blue),
+              borderRadius: BorderRadius.all(Radius.circular(25)),
+            ),
             child: Center(
               child: Text(
                 '重置',
@@ -298,7 +281,7 @@ class SearchPageState extends State<SearchPage> {
               ),
             ),
           ),
-          onTap: (){
+          onTap: () {
             setState(() {
               _type = '';
               _education = '';
@@ -361,15 +344,29 @@ class SearchPageState extends State<SearchPage> {
         width: 40,
       ),
       Container(
-        width: 80,
+        width: 120,
         child: Text(
           title,
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18),
         ),
       ),
       Expanded(
         child: w,
       ),
     ]);
+  }
+
+  Container _initBaseRowContainer(Widget w) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      height: 50,
+      margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 40),
+      padding: EdgeInsets.only(left: 10, right: 10),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.all(Radius.circular(25)),
+      ),
+      child: w,
+    );
   }
 }
