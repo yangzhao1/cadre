@@ -14,7 +14,7 @@ class _MeState extends State<Me> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("我的"), centerTitle: true),
+      appBar: AppBar(title: Text("我的"), centerTitle: true,elevation: 0,),
       body: Column(
         children: <Widget>[
           Container(
@@ -218,7 +218,7 @@ class _MeState extends State<Me> {
               )
             ),
             onTap: (){
-              Navigator.of(context).push(
+              Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                           builder: (context)=>Login()
                         )
