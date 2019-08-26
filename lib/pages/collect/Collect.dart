@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/dataBank/DataBankInfo.dart';
 import 'package:flutter_cadre/pages/peopleInfo/PeopleInfo.dart';
 
 class Collect extends StatefulWidget {
@@ -16,6 +17,7 @@ class _CollectState extends State<Collect> {
             centerTitle: true,
             bottom: TabBar(
               tabs: <Widget>[Tab(text: "人员"), Tab(text: "单位")],
+              indicatorColor: Colors.white,
             )),
         body: TabBarView(
           children: <Widget>[
@@ -47,75 +49,79 @@ class _CollectState extends State<Collect> {
     return list;
   }
 
-  Card _initCell() {
-    return Card(
-        child: GestureDetector(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  padding:
-                      EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
-                  child: Text('干部姓名：李洪涛'),
-                ),
-                Container(
-                  padding:
-                      EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                  child: Text('单位：西安中级人民法院'),
-                ),
-                Container(
-                  padding:
-                      EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 10),
-                  child: Text('性别：男          职级：书记'),
-                ),
-              ],
-            ),
-            onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => PeopleInfo()));
-            }));
+  Widget _initCell() {
+    return GestureDetector(
+        child: Card(
+          margin: EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
+                child: Text('干部姓名：李洪涛',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+              ),
+              _initSubCell('专业：法律', '单位：西安中级人民法院'),
+              _initSubCell('性别：男', '职级：审判长'),
+              _initSubCell('家庭成员：妻子', '籍贯：陕西省'),
+              _initSubCell('奖惩情况：无', ''),
+            ],
+          ),
+        ),
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => PeopleInfo()));
+        });
   }
 
-  Card _initUnitCell() {
-    return Card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+
+
+  Container _initSubCell(String beforeString, String afterString) {
+    return Container(
+      padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Container(
-                padding:
-                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
-                child: Text('名称：西安中级人民法院'),
-              ),
-              Container(
-                padding:
-                    EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                child: Text('  联系方式：029-56445125'),
-              ),
-            ],
+          Expanded(
+            child: Text(
+              beforeString,
+              style: TextStyle(fontSize: 16),
+            ),
           ),
-          Row(
-            children: <Widget>[
-              Container(
-                padding:
-                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
-                child: Text('信访接待电话: 872546554'),
-              ),
-              Container(
-                padding:
-                    EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 5),
-                child: Text('地址: 西安市北二环东段139号'),
-              ),
-            ],
+          Expanded(
+            child: Text(afterString, style: TextStyle(fontSize: 16)),
           ),
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 5, bottom: 10),
-            child: Text('简介: 西安市中级人民法院位于西安市北二环东段139号，是依法设立的国家审判机关，辖9区4县共13'
-                '个基层人民法院，27个人民法庭，共有干警1924名。全市法院年受理案件约70000件，约占全省法院受理案件总数的三分之一...'),
-          )
         ],
       ),
     );
+  }
+
+
+  Widget _initUnitCell() {
+    return GestureDetector(
+        child: Card(
+          margin: EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
+                child: Text('单位：西安中级人民法院',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+              ),
+              _initSubCell('单位即将超龄人员：40人', '单位编制：编制人员152人'),
+              _initSubCell('职数: 32个职位', '本年度即将退休人员：3人'),
+              _initSubCell('单位内设机构：院领导,民一庭,民二庭,刑庭,行政庭,告申庭,研究室,执行局', '奖惩情况：无'),
+            ],
+          ),
+        ),
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => DataBankInfo()));
+        });
   }
 }
