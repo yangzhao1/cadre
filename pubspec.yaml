@@ -56,6 +56,15 @@ flutter:
    - images/address_sel.png
    - images/mine_nor.png
    - images/mine_sel.png
+   - images/icon_1.png
+   - images/icon_2.png
+   - images/icon_3.png
+   - images/icon_4.png
+   - images/gonggao.png
+   - images/banner3.png
+   - images/banner4.png
+   - images/ganbu_bg.png
+   - images/bg_login.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

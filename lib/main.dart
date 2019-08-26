@@ -14,8 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(color: Colors.red)
       ),
       routes: <String,WidgetBuilder>{
         '/main': (BuildContext cxt) =>_MainTabPage(),
@@ -44,7 +46,7 @@ class _MainTabPageState extends State<_MainTabPage> {
     TabbarItem('数据分析', 'images/analyse_nor.png', 'images/analyse_sel.png',
         AnalysePage()),
     TabbarItem(
-        '便携名册', 'images/address_nor.png', 'images/address_sel.png', Portable()),
+        '分类名册', 'images/address_nor.png', 'images/address_sel.png', Portable()),
     TabbarItem('我的', 'images/mine_nor.png', 'images/mine_sel.png', Me()),
   ];
   @override
@@ -62,7 +64,7 @@ class _MainTabPageState extends State<_MainTabPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: _itemsData.map((item) => this._initItem(item)).toList(),
         currentIndex: _selectIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.red,
         onTap: (index) {
           setState(() {
             _selectIndex = index;
