@@ -28,6 +28,7 @@ dependencies:
   dio: ^2.1.13
   flutter_swiper: any
   easy_listview: any
+  azlistview: any
 
 dev_dependencies:
   flutter_test:
