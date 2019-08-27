@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/home/smart_roster_page.dart';
 import 'package:flutter_cadre/pages/login/Login.dart';
 import 'package:flutter_cadre/pages/me/Me.dart';
 import 'package:flutter_cadre/pages/tools/tool_notification.dart';

@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: <Widget>[
-                    Image(image: AssetImage("images/gonggao.png"),width: 10,height: 10,),
+                    Image(image: AssetImage("images/gonggao.png"),width: 16,height: 16,color: Colors.red,),
                     SizedBox(width: 10,),
                     Container(
                       height: 40,
