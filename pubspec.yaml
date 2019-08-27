@@ -65,6 +65,8 @@ flutter:
    - images/banner4.png
    - images/ganbu_bg.png
    - images/bg_login.png
+   - images/guanxi.png
+   - images/qdy_pic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
