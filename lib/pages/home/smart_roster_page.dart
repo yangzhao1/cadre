@@ -1,5 +1,7 @@
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/home/RollList.dart';
+import 'package:flutter_cadre/pages/peopleInfo/PeopleInfo.dart';
 
 class SmartRosterPage extends StatefulWidget {
   @override
@@ -19,12 +21,12 @@ class _SmartRosterPageState extends State<SmartRosterPage> {
     SmartRosterItem(
         count: '21', name: '科级名册', indexTag: '处级分册', isShowSection: true,index: 2),
     SmartRosterItem(
-        count: '21', name: '科员及以下名册', indexTag: '处级分册', isShowSection: true,index: 3),
+        count: '19', name: '科员及以下名册', indexTag: '处级分册', isShowSection: true,index: 3),
     //
     SmartRosterItem(
-        count: '21', name: '西安地区名册', indexTag: '地区分册', isShowSection: false,index: 4),
+        count: '25', name: '西安地区名册', indexTag: '地区分册', isShowSection: false,index: 4),
     SmartRosterItem(
-        count: '21', name: '咸阳地区名册', indexTag: '地区分册', isShowSection: true,index: 5),
+        count: '22', name: '咸阳地区名册', indexTag: '地区分册', isShowSection: true,index: 5),
     SmartRosterItem(
         count: '21', name: '宝鸡地区名册', indexTag: '地区分册', isShowSection: true,index: 6),
   ];
@@ -37,6 +39,7 @@ class _SmartRosterPageState extends State<SmartRosterPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('智能名册'),
+        centerTitle: true,
       ),
       body: AzListView(
         data: _rosterList,
@@ -44,8 +47,10 @@ class _SmartRosterPageState extends State<SmartRosterPage> {
         // isUseRealIndex: true,
         itemBuilder: (context, model) {
           return  GestureDetector(child: _cell(model),onTap: (){
-            int index = (model as SmartRosterItem).index;
-            print('我点击了什么?~~~~~$index');
+            // int index = (model as SmartRosterItem).index;
+            // print('我点击了什么?~~~~~$index');
+            Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => RollList()));
           },) ;
         },
         showIndexHint: false,

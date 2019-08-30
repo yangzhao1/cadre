@@ -1,53 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/peopleInfo/PeopleInfo.dart';
 
-class HomeDetailPage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return HomeDetailPageState();
-  }
+class RollList extends StatefulWidget {
+  RollList({Key key}) : super(key: key);
+
+  _RollListState createState() => _RollListState();
 }
 
-class HomeDetailPageState extends State<HomeDetailPage> {
+class _RollListState extends State<RollList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: EdgeInsets.only(top: 5, bottom: 5),
-          child: TextField(
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search, color: Colors.white),
-              hintText: "请输入关键字",
-              hintStyle: TextStyle(
-                fontSize: 15,
-                color: Colors.white30,
-              ),
-              contentPadding: EdgeInsets.only(top: 10, bottom: 10),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(22),
-                gapPadding: 10,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-                borderRadius: BorderRadius.circular(22),
-                gapPadding: 10,
-              ),
-            ),
-          ),
-        ),
-      ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (BuildContext context, int index) {
-          return _initListCell();
-        },
-      ),
+       appBar: AppBar(title: Text("便携名册"),centerTitle: true,),
+       body: Container(
+         child: ListView(
+           children: _getListData(),
+         ),
+       ),
     );
   }
 
-  Widget _initListCell() {
+  List<Widget> _getListData() {
+    List<Widget> list = new List();
+    for (var i = 0; i < 5; i++) {
+      list.add(_initCell());
+    }
+    return list;
+  }
+
+  Widget _initCell() {
     return GestureDetector(
         child: Card(
           margin: EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
@@ -73,7 +54,6 @@ class HomeDetailPageState extends State<HomeDetailPage> {
               .push(MaterialPageRoute(builder: (context) => PeopleInfo()));
         });
   }
-
   Container _initSubCell(String beforeString, String afterString) {
     return Container(
       padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
@@ -93,4 +73,5 @@ class HomeDetailPageState extends State<HomeDetailPage> {
       ),
     );
   }
+
 }

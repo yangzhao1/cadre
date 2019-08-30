@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cadre/pages/collect/Collect.dart';
 import 'package:flutter_cadre/pages/dataBank/DataBank.dart';
 import 'package:flutter_cadre/pages/history/History.dart';
 import 'package:flutter_cadre/pages/login/Login.dart';
+import 'package:flutter_cadre/pages/me/FunSetting.dart';
 import 'package:flutter_cadre/pages/password/UpdatePW.dart';
+import 'package:flutter_cadre/pages/tools/Toast.dart';
 
 class Me extends StatefulWidget {
   _MeState createState() => _MeState();
@@ -31,7 +32,9 @@ class _MeState extends State<Me> {
                   width: 20,
                 ),
                 Image(
-                  image: AssetImage('images/home_nor.png'),
+                  image: AssetImage('images/mrtx_icon.png'),
+                  width: 80,
+                  height: 80,
                 ),
                 SizedBox(
                   width: 20,
@@ -55,6 +58,29 @@ class _MeState extends State<Me> {
               ],
             ),
           ),
+          // SizedBox(height: 10),
+          // GestureDetector(
+          //   child: Container(
+          //     height: 40,
+          //     color: Colors.white60,
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.start,
+          //       children: <Widget>[
+          //         SizedBox(width: 20),
+          //         Icon(
+          //           Icons.access_alarm
+          //         ),
+          //         SizedBox(width: 20),
+          //         Text("收藏夹管理"),
+          //       ],
+          //     ),
+          //   ),
+          //   onTap: () {
+          //     // print("收藏夹");
+          //     Navigator.of(context)
+          //         .push(MaterialPageRoute(builder: (context) => Collect()));
+          //   },
+          // ),
           SizedBox(height: 10),
           GestureDetector(
             child: Container(
@@ -64,31 +90,10 @@ class _MeState extends State<Me> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  Icon(
-                    Icons.access_alarm
-                  ),
-                  SizedBox(width: 20),
-                  Text("收藏夹管理"),
-                ],
-              ),
-            ),
-            onTap: () {
-              // print("收藏夹");
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Collect()));
-            },
-          ),
-          SizedBox(height: 10),
-          GestureDetector(
-            child: Container(
-              height: 40,
-              color: Colors.white60,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  SizedBox(width: 20),
-                  Icon(
-                    Icons.access_time
+                  Image(
+                    image: AssetImage('images/lljl_icon.png'),
+                    width: 20,
+                    height: 20,
                   ),
                   SizedBox(width: 20),
                   Text("浏览记录"),
@@ -108,8 +113,10 @@ class _MeState extends State<Me> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  Icon(
-                    Icons.accessibility
+                  Image(
+                    image: AssetImage('images/zlk_icon.png'),
+                    width: 20,
+                    height: 20,
                   ),
                   SizedBox(width: 20),
                   Text("资料库"),
@@ -129,8 +136,10 @@ class _MeState extends State<Me> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  Icon(
-                    Icons.accessible
+                  Image(
+                    image: AssetImage('images/znyy_icon.png'),
+                    width: 20,
+                    height: 20,
                   ),
                   SizedBox(width: 20),
                   Text("智能语音助手"),
@@ -138,11 +147,7 @@ class _MeState extends State<Me> {
               ),
             ),
             onTap: () {
-              // Navigator.of(context).push(
-              //           MaterialPageRoute(
-              //             builder: (context)=>Login()
-              //           )
-              //         );
+              Toast.toast(context,msg:'敬请期待');
             },
           ),
           GestureDetector(
@@ -153,20 +158,22 @@ class _MeState extends State<Me> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  Icon(
-                    Icons.account_box
+                  Image(
+                    image: AssetImage('images/sz_icon.png'),
+                    width: 20,
+                    height: 20,
                   ),
                   SizedBox(width: 20),
-                  Text("个性化设置"),
+                  Text("功能设置"),
                 ],
               ),
             ),
             onTap: () {
-              // Navigator.of(context).push(
-              //           MaterialPageRoute(
-              //             builder: (context)=>Login()
-              //           )
-              //         );
+              Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context)=>FunSetting()
+                        )
+                      );
             },
           ),
           GestureDetector(
@@ -177,8 +184,10 @@ class _MeState extends State<Me> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  Icon(
-                    Icons.account_balance
+                  Image(
+                    image: AssetImage('images/xgmm_icon.png'),
+                    width: 20,
+                    height: 20,
                   ),
                   SizedBox(width: 20),
                   Text("修改密码"),
@@ -198,8 +207,10 @@ class _MeState extends State<Me> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(width: 20),
-                  Icon(
-                    Icons.cloud_download
+                  Image(
+                    image: AssetImage('images/bbgx_icon.png'),
+                    width: 20,
+                    height: 20,
                   ),
                   SizedBox(width: 20),
                   Text("版本更新"),

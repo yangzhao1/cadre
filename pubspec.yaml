@@ -69,6 +69,16 @@ flutter:
    - images/guanxi.png
    - images/qdy_pic.png
 
+   - images/bbgx_icon.png
+   - images/bxmc_icon.png
+   - images/lljl_icon.png
+   - images/mrtx_icon.png
+   - images/scj_icon.png
+   - images/sz_icon.png
+   - images/xgmm_icon.png
+   - images/zlk_icon.png
+   - images/znyy_icon.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

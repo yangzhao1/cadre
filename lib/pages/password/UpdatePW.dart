@@ -37,10 +37,10 @@ class _UpdatePWState extends State<UpdatePW> {
                   decoration: InputDecoration(
                     labelText: "旧密码",
                     hintText: "请输入旧密码",
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: Icon(Icons.lock,color:Theme.of(context).appBarTheme.color),
                     suffixIcon: IconButton(
                       icon: Icon(
-                          pwdShow ? Icons.visibility_off : Icons.visibility),
+                          pwdShow ? Icons.visibility_off : Icons.visibility,color: Colors.red),
                       onPressed: () {
                         setState(() {
                           pwdShow = !pwdShow;
@@ -58,10 +58,10 @@ class _UpdatePWState extends State<UpdatePW> {
                 decoration: InputDecoration(
                     labelText: "新密码",
                     hintText: "请输入新密码",
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: Icon(Icons.lock,color:Theme.of(context).appBarTheme.color),
                     suffixIcon: IconButton(
                       icon: Icon(
-                          pwdShow ? Icons.visibility_off : Icons.visibility),
+                          pwdShow ? Icons.visibility_off : Icons.visibility,color: Colors.red),
                       onPressed: () {
                         setState(() {
                           pwdShow = !pwdShow;
@@ -80,10 +80,10 @@ class _UpdatePWState extends State<UpdatePW> {
                 decoration: InputDecoration(
                     labelText: "确认密码",
                     hintText: "请再次输入新密码",
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: Icon(Icons.lock,color:Theme.of(context).appBarTheme.color),
                     suffixIcon: IconButton(
                       icon: Icon(
-                          pwdShow ? Icons.visibility_off : Icons.visibility),
+                          pwdShow ? Icons.visibility_off : Icons.visibility,color: Colors.red,),
                       onPressed: () {
                         setState(() {
                           pwdShow = !pwdShow;
@@ -101,7 +101,7 @@ class _UpdatePWState extends State<UpdatePW> {
                 child: ConstrainedBox(
                   constraints: BoxConstraints.expand(height: 55.0),
                   child: RaisedButton(
-                    color: Theme.of(context).primaryColor,
+                    color:Theme.of(context).appBarTheme.color,
                     onPressed: _onLogin,
                     textColor: Colors.white,
                     child: Text("确认修改"),

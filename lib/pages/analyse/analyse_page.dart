@@ -12,7 +12,7 @@ class AnalysePage extends StatefulWidget {
 class AnalysePageState extends State<AnalysePage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  final List _tabbars = ['图形分析', '班子分析'];
+  final List _tabbars = ['图形分析', '班子分析', '关系图谱'];
   @override
   void initState() {
     // 创建Controller
@@ -31,7 +31,8 @@ class AnalysePageState extends State<AnalysePage>
           labelPadding: EdgeInsets.only(top: 10, bottom: 10),
           tabs: _tabbars
               .map((e) => Text(
-                    e,style: TextStyle(backgroundColor: Colors.red),
+                    e,
+                    style: TextStyle(backgroundColor: Colors.red),
                   ))
               .toList(),
           controller: _tabController,
@@ -43,7 +44,19 @@ class AnalysePageState extends State<AnalysePage>
         children: <Widget>[
           _initTabBarView_1(),
           _initTabBarView_2(),
+          _initTabBarView_3(),
         ],
+      ),
+    );
+  }
+
+  Widget _initTabBarView_3() {
+    return Container(
+      child: Image(
+        // height: 100,
+        // width: 100,
+        image: AssetImage("images/guanxi.png"),
+        // fit: BoxFit.fill,
       ),
     );
   }

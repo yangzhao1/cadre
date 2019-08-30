@@ -11,7 +11,7 @@ class _LoginState extends State<Login> {
   TextEditingController _pwdController = new TextEditingController();
   bool pwdShow = false; //密码是否显示明文
   GlobalKey _formKey = new GlobalKey<FormState>();
-  bool _nameAutoFocus = true;
+  bool _nameAutoFocus = false;
   // @override
   // void initState() {
 // 自动填充上次登录的用户名，填充后将焦点定位到密码输入框
@@ -28,7 +28,7 @@ class _LoginState extends State<Login> {
         // appBar: AppBar(title: Text(gm.login)),
         body: SingleChildScrollView(
             child: Container(
-              height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height,
       decoration: new BoxDecoration(
         color: Colors.grey,
         image: new DecorationImage(
@@ -39,78 +39,126 @@ class _LoginState extends State<Login> {
       ),
       child: Column(
         children: <Widget>[
+          SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "    保密设备不可联网",
+                style: TextStyle(fontSize: 15, color: Colors.white),
+              ),
+            ],
+          ),
           SizedBox(height: 150),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
                 "干部信息查询系统",
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30, color: Colors.white),
               ),
             ],
           ),
-          SizedBox(height: 100),
-          TextFormField(
-              autofocus: _nameAutoFocus,
-              controller: _unameController,
-              decoration: InputDecoration(
-                labelText: "账号",
-                hintText: "请输入账号",
-                prefixIcon: Icon(Icons.person),
-              ),
-              // 校验用户名（不能为空）
-              validator: (v) {
-                return v.trim().isNotEmpty ? null : "账号不能为空";
-              }),
-          TextFormField(
-            controller: _pwdController,
-            autofocus: !_nameAutoFocus,
-            decoration: InputDecoration(
-                labelText: "密码",
-                hintText: "请输入密码",
-                prefixIcon: Icon(Icons.lock),
-                suffixIcon: IconButton(
-                  icon: Icon(pwdShow ? Icons.visibility_off : Icons.visibility),
-                  onPressed: () {
-                    setState(() {
-                      pwdShow = !pwdShow;
-                    });
-                  },
-                )),
-            obscureText: !pwdShow,
-            //校验密码（不能为空）
-            validator: (v) {
-              return v.trim().isNotEmpty ? null : "密码不能为空";
-            },
-          ),
-          Stack(
-            alignment: Alignment.centerRight,
+          SizedBox(height: 120),
+          Column(
             children: <Widget>[
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    child: Text(
-                      "忘记密码",
-                      style: TextStyle(color: Colors.blue),
+              Container(
+                margin: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                child: TextFormField(
+                    autofocus: _nameAutoFocus,
+                    controller: _unameController,
+                    cursorColor: Colors.red,
+                    decoration: InputDecoration(
+                      labelText: "账号",
+                      hintText: "请输入账号",
+                      labelStyle: TextStyle(color: Colors.red),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Colors.red,
+                      ),
                     ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => ForgetPW()));
-                    },
-                  ))
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 25),
-            child: ConstrainedBox(
-              constraints: BoxConstraints.expand(height: 55.0),
-              child: RaisedButton(
-                color: Theme.of(context).primaryColor,
-                onPressed: _onLogin,
-                textColor: Colors.white,
-                child: Text("登录"),
+                    // 校验用户名（不能为空）
+                    validator: (v) {
+                      return v.trim().isNotEmpty ? null : "账号不能为空";
+                    }),
               ),
-            ),
+              Container(
+                margin: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                child: TextFormField(
+                  controller: _pwdController,
+                  autofocus: _nameAutoFocus,
+                  cursorColor: Colors.red,
+                  decoration: InputDecoration(
+                      labelText: "密码",
+                      hintText: "请输入密码",
+                      labelStyle: TextStyle(color: Colors.red),
+                      prefixIcon: Icon(Icons.lock, color: Colors.red),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                            pwdShow ? Icons.visibility_off : Icons.visibility,
+                            color: Colors.red),
+                        onPressed: () {
+                          setState(() {
+                            pwdShow = !pwdShow;
+                          });
+                        },
+                      )),
+                  obscureText: !pwdShow,
+                  //校验密码（不能为空）
+                  validator: (v) {
+                    return v.trim().isNotEmpty ? null : "密码不能为空";
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                child: Stack(
+                  alignment: Alignment.centerRight,
+                  children: <Widget>[
+                    Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          child: Text(
+                            "忘记密码",
+                            style: TextStyle(color: Colors.red),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ForgetPW()));
+                          },
+                        ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(70, 0, 70, 0),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.expand(height: 55.0),
+                  child: RaisedButton(
+                    color: Theme.of(context).appBarTheme.color,
+                    onPressed: _onLogin,
+                    textColor: Colors.white,
+                    child: Text("登录"),
+                  ),
+                ),
+              ),
+              SizedBox(height: 280,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "数据最后更新时间: 2019-08-29",
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),

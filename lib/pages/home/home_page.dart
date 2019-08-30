@@ -1,8 +1,11 @@
 import 'package:easy_listview/easy_listview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cadre/pages/collect/Collect.dart';
 import 'package:flutter_cadre/pages/home/home_detail_page.dart';
 import 'package:flutter_cadre/pages/home/home_search_page.dart';
+import 'package:flutter_cadre/pages/home/smart_roster_page.dart';
 import 'package:flutter_cadre/pages/outline/PeopleOutline.dart';
+import 'package:flutter_cadre/pages/peopleInfo/PeopleInfo.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePage extends StatefulWidget {
@@ -40,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: <Widget>[
-                    Image(image: AssetImage("images/gonggao.png"),width: 16,height: 16,color: Colors.red,),
+                    Image(image: AssetImage("images/gonggao.png"),width: 10,height: 10,),
                     SizedBox(width: 10,),
                     Container(
                       height: 40,
@@ -56,6 +59,12 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(left: 20, right: 20),
                 color: Colors.white,
                 child: _initQuickFind(),
+              ),
+              Container(
+                height: 100,
+                padding: EdgeInsets.only(left: 20, right: 20),
+                color: Colors.white,
+                child: _initQuickFind2(),
               ),
               Container(
                 height: 30,
@@ -133,14 +142,52 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (context) => HomeDetailPage()));
           },
         ),
+        // GestureDetector(
+        //   child: _initQuickButton('名册概要', "images/icon_4.png"),
+        //   onTap: () {
+        //     // ToolNotification(value: 2).dispatch(context);
+        //     Navigator.push(context,
+        //         MaterialPageRoute(builder: (context) => PeopleOutline()));
+        //   },
+        // ),
+      ],
+    );
+  }
+
+  //快捷查询
+  Row _initQuickFind2() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        GestureDetector(
+          child: _initQuickButton('收藏夹管理', "images/scj_icon.png"),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Collect()));
+          },
+        ),
+        GestureDetector(
+          child: _initQuickButton('便携名册', "images/bxmc_icon.png"),
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SmartRosterPage()));
+          },
+        ),
         GestureDetector(
           child: _initQuickButton('名册概要', "images/icon_4.png"),
           onTap: () {
-            // ToolNotification(value: 2).dispatch(context);
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => PeopleOutline()));
           },
         ),
+        // GestureDetector(
+        //   child: _initQuickButton('名册概要', "images/icon_4.png"),
+        //   onTap: () {
+        //     // ToolNotification(value: 2).dispatch(context);
+        //     Navigator.push(context,
+        //         MaterialPageRoute(builder: (context) => PeopleOutline()));
+        //   },
+        // ),
       ],
     );
   }
@@ -148,8 +195,8 @@ class _HomePageState extends State<HomePage> {
   Card _initQuickButton(String title, String imagePath) {
     return Card(
         child: Container(
-          width: 120,
-          height: 50,
+          width: 150,
+          height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -189,24 +236,31 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Card _initListCell() {
-    return Card(
-      margin: EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
-            child: Text('干部姓名：李洪涛',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+  Widget _initListCell() {
+    return GestureDetector(
+        child: Card(
+          margin: EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding:
+                    EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
+                child: Text('干部姓名：李洪涛',
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+              ),
+              _initSubCell('专业：法律', '单位：西安中级人民法院'),
+              _initSubCell('性别：男', '职级：审判长'),
+              _initSubCell('家庭成员：妻子', '籍贯：陕西省'),
+              _initSubCell('奖惩情况：无', ''),
+            ],
           ),
-          _initSubCell('专业：法律', '单位：西安中级人民法院'),
-          _initSubCell('性别：男', '职级：审判长'),
-          _initSubCell('家庭成员：妻子', '籍贯：陕西省'),
-          _initSubCell('奖惩情况：无', ''),
-        ],
-      ),
-    );
+        ),
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => PeopleInfo()));
+        });
   }
 
   Container _initSubCell(String beforeString, String afterString) {

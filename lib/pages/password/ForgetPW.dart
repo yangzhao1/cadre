@@ -33,7 +33,7 @@ class _ForgetPWState extends State<ForgetPW> {
                   decoration: InputDecoration(
                     labelText: "手机号",
                     hintText: "请输入手机号",
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: Icon(Icons.lock,color: Colors.red,),
                   ),
                   validator: (v) {
                     return v.trim().isNotEmpty ? null : "手机号不能为空";
@@ -45,14 +45,14 @@ class _ForgetPWState extends State<ForgetPW> {
                   decoration: InputDecoration(
                     labelText: "验证码",
                     hintText: "请输入验证码",
-                    prefixIcon: Icon(Icons.access_time),
+                    prefixIcon: Icon(Icons.access_time,color: Colors.red),
                     suffixIcon: Stack(
                       alignment: Alignment.center,
                       children: <Widget>[
                         Container(
                           width: 80,
                           height: 40,
-                          color: Colors.blue,
+                          color: Colors.red,
                         ),
                         Text("发送验证码", style: TextStyle(color: Colors.white))
                       ],
@@ -66,7 +66,7 @@ class _ForgetPWState extends State<ForgetPW> {
                 child: ConstrainedBox(
                   constraints: BoxConstraints.expand(height: 55.0),
                   child: RaisedButton(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).appBarTheme.color,
                     onPressed: _onLogin,
                     textColor: Colors.white,
                     child: Text("下一步"),

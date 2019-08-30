@@ -30,7 +30,22 @@ class _PeopleInfoState extends State<PeopleInfo> {
                     ),
                   ))
             ],
-          )
+          ),
+          Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    // Toast.toast(context, msg: '收藏成功');
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      '添加批注',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ))
+              ])
         ],
       ),
       body: SingleChildScrollView(
@@ -45,7 +60,7 @@ class _PeopleInfoState extends State<PeopleInfo> {
                     width: 50,
                   ),
                   Image(
-                    image: AssetImage('images/home_nor.png'),
+                    image: AssetImage('images/mrtx_icon.png'),
                   ),
                   SizedBox(
                     width: 50,

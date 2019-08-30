@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/dataBank/ArtInfo.dart';
-import 'package:flutter_cadre/pages/dataBank/DataBankInfo.dart';
-import 'package:flutter_cadre/pages/home/home_detail_page.dart';
+
+import 'AddData.dart';
 
 class DataBank extends StatefulWidget {
   _DataBankState createState() => _DataBankState();
@@ -16,10 +16,10 @@ class _DataBankState extends State<DataBank> {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.add),
             onPressed: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => HomeDetailPage()));
+                  MaterialPageRoute(builder: (context) => AddData()));
             },
           )
         ],

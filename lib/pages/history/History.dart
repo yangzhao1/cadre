@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cadre/pages/dataBank/DataBankInfo.dart';
+import 'package:flutter_cadre/pages/tools/Toast.dart';
 
 class BrowsHistory extends StatefulWidget {
   _BrowsHistoryState createState() => _BrowsHistoryState();
@@ -11,7 +12,18 @@ class _BrowsHistoryState extends State<BrowsHistory> {
     return Scaffold(
       appBar: AppBar(
         title: Text("浏览记录"),
-        centerTitle: true
+        centerTitle: true,
+        actions: <Widget>[
+           IconButton(
+            icon: Icon(Icons.delete),
+            onPressed: () {
+              Toast.toast(
+                context,
+                msg: "清除完成"
+              );
+            },
+          )
+        ],
       ),
       body: ListView(
         children: _getListData()
